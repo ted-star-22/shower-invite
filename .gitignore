@@ -1,0 +1,15 @@
+.DS_Store
+.claude/
+.netlify/
+node_modules/
+.ogfonts/
+*.log
+
+# Third-party / copyrighted images — not for publication
+end.png
+invite.gif
+213-2138595_baby-piglet-clipart-winnie-the-pooh-and-piglet-baby.png
+366b3e42107eefe0c0eb8bd984dcf614.jpg
+
+# Private source file (web-ready assets/baby-scan.webp is used instead)
+photo_2026-07-24_01-08-16.jpg

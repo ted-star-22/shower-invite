@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>A Little Hunny is on the Way · Baby Shower</title>
+<meta name="description" content="You're invited to Melanny & Tommy's baby shower — tap the envelope to open the invitation and RSVP." />
+<!-- Open Graph / social share preview -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Melanny & Tommy's Baby Shower" />
+<meta property="og:url" content="https://melanny-tommy-baby-shower.netlify.app/" />
+<meta property="og:title" content="Melanny & Tommy's Baby Shower 🍯" />
+<meta property="og:description" content="A little hunny is on the way! Tap the envelope to open the invitation and RSVP — Sunday, October 11th · 1:30 PM at Phoenix Park Community Centre." />
+<meta property="og:image" content="https://melanny-tommy-baby-shower.netlify.app/assets/og.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="A little bear and piglet blowing a dandelion — Melanny & Tommy's Baby Shower invitation." />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Melanny & Tommy's Baby Shower 🍯" />
+<meta name="twitter:description" content="A little hunny is on the way! Tap to open the invitation and RSVP." />
+<meta name="twitter:image" content="https://melanny-tommy-baby-shower.netlify.app/assets/og.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&family=Parisienne&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   CONFIG-FREE STYLES — theme: classic hunny-bear watercolor
+   Palette: blush pink · cream · warm honey gold
+   ============================================================ */
+:root{
+  --cream:#fbf5ee;
+  --cream-2:#f6ece1;
+  --paper:#fffdfa;
+  --blush:#e7c3c6;
+  --blush-deep:#d7a4a9;
+  --blush-soft:#f3dcdd;
+  --rose-line:#cf9ca1;
+  --honey:#e3a94b;
+  --honey-deep:#c98f33;
+  --ink:#6f5b52;      /* soft brown text */
+  --ink-soft:#8b756b;
+  --ink-faint:#a4918a;
+  --leaf:#9aae8b;
+  --shadow:0 18px 40px -18px rgba(120,86,74,.45);
+  --font-cap:'Cinzel', serif;
+  --font-serif:'Cormorant Garamond', serif;
+  --font-script:'Pinyon Script', cursive;
+  --font-hand:'Parisienne', cursive;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--font-serif);
+  color:var(--ink);
+  background:#ece3da;
+  min-height:100vh;
+  min-height:100dvh;
+}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer}
+
+/* ---- The phone-width stage ---- */
+.stage{
+  position:relative;
+  max-width:460px;
+  margin:0 auto;
+  min-height:100vh;
+  min-height:100dvh;
+  background:
+    radial-gradient(120% 55% at 82% -6%, #f7e2c8 0%, rgba(247,226,200,0) 55%),
+    radial-gradient(120% 55% at 12% 104%, #f2d6d8 0%, rgba(242,214,216,0) 55%),
+    linear-gradient(180deg,#fdf8f2 0%, #fbf3ea 45%, #f9efe6 100%);
+  overflow:hidden;
+  box-shadow:0 0 60px -20px rgba(120,86,74,.5);
+}
+/* faint honeycomb wash top-right & areas */
+.honeycomb{position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='96' viewBox='0 0 56 96'><g fill='none' stroke='%23e9c9a6' stroke-width='1.4' opacity='0.55'><path d='M28 2 L52 16 L52 44 L28 58 L4 44 L4 16 Z'/><path d='M28 50 L52 64 L52 92 L28 106 L4 92 L4 64 Z'/></g></svg>");
+  background-size:56px 96px;
+  -webkit-mask-image:radial-gradient(120% 80% at 90% 0%, #000 0%, rgba(0,0,0,.15) 45%, transparent 70%);
+  mask-image:radial-gradient(120% 80% at 90% 0%, #000 0%, rgba(0,0,0,.15) 45%, transparent 70%);
+}
+
+/* ============================================================
+   SCREENS
+   ============================================================ */
+.screen{position:absolute;inset:0;display:flex;flex-direction:column;
+  opacity:0;visibility:hidden;transition:opacity .7s ease;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch}
+.screen.active{opacity:1;visibility:visible}
+.screen::-webkit-scrollbar{width:0}
+
+/* ---------- SCREEN 1: ENVELOPE ---------- */
+#screen-envelope{align-items:center;justify-content:center;text-align:center;padding:26px 24px}
+.env-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;width:100%}
+.tagline{margin-top:8px}
+.tagline .line1{font-family:var(--font-cap);letter-spacing:.28em;font-size:19px;color:var(--ink-soft);text-transform:uppercase}
+.tagline .line1 em{font-family:var(--font-hand);text-transform:none;font-style:normal;letter-spacing:0;font-size:34px;color:var(--blush-deep);vertical-align:-3px;padding:0 .1em}
+.tagline .line2{font-family:var(--font-cap);letter-spacing:.22em;font-size:12px;color:var(--ink-faint);margin-top:16px;text-transform:uppercase;animation:pulseHint 2.4s ease-in-out infinite}
+@keyframes pulseHint{0%,100%{opacity:.45}50%{opacity:1}}
+
+.envelope-scene{position:relative;width:min(84vw,340px);aspect-ratio:1/.92;margin:0 auto;cursor:pointer}
+.peekers{position:absolute;left:50%;top:-2%;width:74%;transform:translateX(-50%);z-index:1;
+  filter:drop-shadow(0 10px 14px rgba(120,86,74,.18));animation:peekBob 4s ease-in-out infinite}
+@keyframes peekBob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
+
+.envelope{position:absolute;left:0;right:0;bottom:0;height:74%;z-index:2;transform-style:preserve-3d;perspective:1000px}
+.env-base{position:absolute;inset:0;z-index:2}
+.env-base svg{width:100%;height:100%;display:block;filter:drop-shadow(0 16px 26px rgba(120,86,74,.30))}
+.env-flap{position:absolute;inset:0;transform-origin:top center;z-index:5;
+  transition:transform .9s cubic-bezier(.6,-0.2,.3,1)}
+.env-flap svg{width:100%;height:100%;display:block;filter:drop-shadow(0 7px 9px rgba(120,86,74,.16))}
+/* gold bead corners */
+.bead{position:absolute;width:11%;aspect-ratio:1;border-radius:50%;z-index:6;
+  background:radial-gradient(circle at 32% 30%,#f6dfa0,#dca63f 70%,#b9852c);
+  box-shadow:0 3px 6px rgba(120,86,74,.3)}
+.bead.left{left:-3%;top:50%}.bead.right{right:-3%;top:50%}
+
+/* ribbon + bow + seal on the closed envelope */
+.ribbon{position:absolute;left:0;right:0;top:50%;height:14%;z-index:7;
+  background:linear-gradient(180deg,#e4b7bd,#d49aa1 55%,#c98f96);
+  box-shadow:0 4px 8px rgba(120,86,74,.18), inset 0 2px 3px rgba(255,255,255,.4);
+  transition:opacity .4s ease, transform .5s ease}
+.bow{position:absolute;left:50%;top:57%;width:34%;transform:translate(-50%,-50%);z-index:8;
+  transition:transform .5s ease, opacity .4s ease}
+.bow svg{width:100%;filter:drop-shadow(0 4px 6px rgba(120,86,74,.22))}
+.seal{position:absolute;left:50%;top:57%;width:15%;aspect-ratio:1;transform:translate(-50%,-50%);z-index:9;
+  border-radius:50%;background:radial-gradient(circle at 34% 30%,#efb7bc,#cf8e95 65%,#b9757d);
+  display:flex;align-items:center;justify-content:center;color:#fff6f3;font-family:var(--font-script);font-size:15px;
+  box-shadow:0 3px 7px rgba(120,86,74,.3), inset 0 2px 4px rgba(255,255,255,.35);
+  transition:transform .5s ease, opacity .4s ease}
+.seal span{transform:translateY(1px)}
+
+/* OPEN state */
+.envelope-scene.opening{cursor:default}
+.envelope-scene.opening .env-flap{transform:rotateX(-172deg)}
+.envelope-scene.opening .ribbon{opacity:0;transform:scaleX(.3)}
+.envelope-scene.opening .bow{opacity:0;transform:translate(-50%,-50%) scale(.4) rotate(-12deg)}
+.envelope-scene.opening .seal{opacity:0;transform:translate(-50%,-160%) scale(.5) rotate(40deg)}
+.envelope-scene.opening .peekers{animation:peekUp 1s ease forwards}
+@keyframes peekUp{40%{transform:translateX(-50%) translateY(-14px)}100%{transform:translateX(-50%) translateY(-40px);opacity:0}}
+/* letter rising */
+.letter{position:absolute;left:8%;right:8%;top:30%;height:60%;border-radius:12px;z-index:4;
+  background:linear-gradient(180deg,#fffdfa,#fbf3ea);box-shadow:0 -6px 18px rgba(120,86,74,.14);
+  transform:translateY(30%);opacity:0;display:flex;align-items:center;justify-content:center;padding:14px}
+.letter .lil{font-family:var(--font-cap);letter-spacing:.2em;font-size:11px;color:var(--ink-faint);text-transform:uppercase;text-align:center;line-height:2}
+.envelope-scene.opening .letter{animation:letterRise 1.1s .35s cubic-bezier(.2,.7,.2,1) forwards}
+@keyframes letterRise{0%{transform:translateY(30%);opacity:0}30%{opacity:1}100%{transform:translateY(-118%);opacity:1}}
+
+/* floating bees layer */
+.bee{position:absolute;width:34px;z-index:20;pointer-events:none;will-change:transform}
+.bee .wing{transform-origin:60% 40%;animation:flutter .18s linear infinite}
+.bee .wing.w2{transform-origin:40% 40%;animation-delay:.09s}
+@keyframes flutter{0%,100%{transform:rotate(-14deg) scaleY(1)}50%{transform:rotate(10deg) scaleY(.85)}}
+@keyframes beeA{0%{transform:translate(0,0) rotate(6deg)}25%{transform:translate(40px,-26px) rotate(-8deg)}
+  50%{transform:translate(84px,10px) rotate(8deg)}75%{transform:translate(30px,36px) rotate(-6deg)}100%{transform:translate(0,0) rotate(6deg)}}
+@keyframes beeB{0%{transform:translate(0,0) rotate(-8deg)}30%{transform:translate(-46px,28px) rotate(8deg)}
+  60%{transform:translate(-20px,-30px) rotate(-6deg)}100%{transform:translate(0,0) rotate(-8deg)}}
+/* keep decorative bees off the form so they never cover fields */
+.stage[data-screen="rsvp"] .bee{opacity:0;visibility:hidden;transition:opacity .3s ease}
+
+/* ============================================================
+   SCREEN 2: INVITATION
+   ============================================================ */
+#screen-invite{padding:0 0 40px}
+.invite-inner{padding:20px 20px 0;position:relative;z-index:2}
+.topdeco{position:relative;height:8px}
+
+/* wavy white card frame (turbulence-distorted border) */
+.card{position:relative;margin:0 auto;padding:2px}
+.card .frame,.mini .frame{position:absolute;inset:0;border-radius:34px;background:var(--paper);
+  border:1.6px solid var(--rose-line);box-shadow:var(--shadow);
+  filter:url(#wobble)}
+.card .frame::after,.mini .frame::after{content:"";position:absolute;inset:7px;border-radius:28px;border:1px solid rgba(207,156,161,.55)}
+.card .content,.mini .content{position:relative;z-index:1;padding:30px 26px}
+
+/* hero invitation card */
+.invite-card{margin-top:6px}
+.invite-card .content{padding:40px 30px 44px;text-align:center}
+.eyebrow{font-family:var(--font-cap);letter-spacing:.18em;text-transform:uppercase;font-size:12.5px;color:var(--ink-soft);line-height:1.85;max-width:280px;margin:0 auto;padding-top:6px}
+.names{font-family:var(--font-script);font-size:clamp(42px,13vw,58px);color:var(--blush-deep);line-height:1.02;margin:14px 0 6px}
+.amp{display:block;font-size:.62em;color:var(--rose-line);margin:2px 0}
+.meta{margin-top:14px}
+.meta .big{font-family:var(--font-serif);font-weight:600;font-size:21px;letter-spacing:.02em;color:var(--ink)}
+.meta .sub{font-family:var(--font-serif);font-size:17px;color:var(--ink-soft);margin-top:12px;line-height:1.5}
+.rule{width:52px;height:1px;background:var(--rose-line);margin:16px auto;opacity:.7}
+.rsvp-by{font-family:var(--font-cap);letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:var(--blush-deep);margin-top:6px}
+
+/* decorative floats around hero card */
+.float{position:absolute;pointer-events:none;z-index:3;filter:drop-shadow(0 8px 12px rgba(120,86,74,.16))}
+.float.booties{width:92px;left:-14px;bottom:-26px;top:auto;animation:sway 6s ease-in-out infinite}
+.float.beehive{width:78px;right:-6px;top:-30px;animation:sway 7s ease-in-out infinite reverse}
+@keyframes sway{0%,100%{transform:rotate(-2deg) translateY(0)}50%{transform:rotate(2deg) translateY(-6px)}}
+
+/* actions row: rsvp + hunny pot */
+.actions{display:flex;gap:14px;align-items:center;margin:30px 4px 6px}
+.rsvp-btn{position:relative;flex:1;border:none;background:transparent;padding:0}
+.rsvp-btn .pill{position:relative;background:linear-gradient(180deg,#f0d3d5,#e6bcc0);
+  border-radius:40px;padding:16px 18px 16px 40px;color:var(--ink);font-family:var(--font-cap);
+  letter-spacing:.14em;text-transform:uppercase;font-size:13px;box-shadow:var(--shadow);
+  transition:transform .25s ease, box-shadow .25s ease}
+.rsvp-btn:hover .pill,.rsvp-btn:active .pill{transform:translateY(-2px)}
+.rsvp-btn .bee-ic{position:absolute;left:-6px;top:50%;transform:translateY(-50%);width:40px;animation:beeWiggle 2.5s ease-in-out infinite}
+@keyframes beeWiggle{0%,100%{transform:translateY(-50%) rotate(-6deg)}50%{transform:translateY(-60%) rotate(6deg)}}
+.hunny-tap{flex:0 0 auto;width:104px;text-align:center;background:none;border:none;padding:0}
+.hunny-tap img{width:92px;margin:0 auto;filter:drop-shadow(0 8px 12px rgba(120,86,74,.2));
+  animation:sway 5s ease-in-out infinite;transition:transform .3s ease}
+.hunny-tap:hover img{transform:scale(1.06) rotate(-3deg)}
+.hunny-tap .cap{font-family:var(--font-cap);letter-spacing:.12em;text-transform:uppercase;font-size:9.5px;color:var(--ink-soft);margin-top:2px;line-height:1.5}
+
+/* two info cards */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+.mini{position:relative;min-height:186px}
+.mini .frame{border-radius:26px}
+.mini .frame::after{inset:6px;border-radius:21px}
+.mini.blush .frame{background:linear-gradient(180deg,#d9a9ae,#cf99a0);border-color:transparent}
+.mini.blush .frame::after{border-color:rgba(255,255,255,.5)}
+.mini .content{padding:24px 18px;text-align:center}
+.mini h3{margin:0;font-family:var(--font-script);font-size:27px;color:var(--blush-deep);font-weight:400}
+.mini.blush h3{color:#fff}
+.mini .cap2{font-family:var(--font-cap);letter-spacing:.18em;text-transform:uppercase;font-size:14px;color:var(--ink);margin:2px 0 12px}
+.mini.blush .cap2{color:#fff}
+.mini p{margin:0;font-family:var(--font-serif);font-size:15px;line-height:1.5;color:var(--ink-soft)}
+.mini.blush p{color:#fff;opacity:.95}
+
+/* single small-request card */
+.request-card{position:relative;margin-top:26px}
+.request-card .mini{min-height:170px}
+.request-card .content{padding:30px 26px 32px}
+.request-card .mini h3{font-size:30px}
+.request-card .mini p{font-size:16px;max-width:280px;margin:0 auto}
+.float.rattle{width:74px;right:-8px;bottom:-26px;top:auto;z-index:4;animation:sway 5.5s ease-in-out infinite reverse}
+.float.books{width:98px;left:-18px;bottom:-40px;top:auto;z-index:4;animation:sway 6.5s ease-in-out infinite}
+/* unify the request-card header with the same caps header font */
+.request-card .mini h3{font-family:var(--font-cap);font-weight:500;text-transform:uppercase;
+  letter-spacing:.16em;font-size:16px;line-height:1.25;margin-bottom:1px}
+
+/* find us: map + calendar */
+.findus{margin-top:30px}
+.findus-head{display:flex;align-items:center;gap:12px;justify-content:center;text-align:left;margin-bottom:14px}
+.findus-head .ic{font-size:22px;filter:saturate(.8)}
+.findus-name{font-family:var(--font-serif);font-weight:600;font-size:18px;color:var(--ink)}
+.findus-addr{font-family:var(--font-serif);font-size:15px;color:var(--ink-soft);margin-top:1px}
+.map-frame{position:relative;border-radius:22px;overflow:hidden;border:1.6px solid var(--rose-line);
+  box-shadow:var(--shadow);background:#efe6dd;height:210px}
+.map-frame iframe{width:100%;height:100%;border:0;display:block;filter:saturate(.92) contrast(.98)}
+.map-open{display:inline-block;margin:12px auto 0;text-decoration:none;
+  font-family:var(--font-cap);letter-spacing:.12em;text-transform:uppercase;font-size:11px;color:var(--blush-deep);width:100%;text-align:center}
+.cal-wrap.invite-cal{display:flex;justify-content:center;margin-top:18px}
+.invite-cal .cal-btn{margin:0 auto}
+
+/* footer sitting */
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.footer-art{display:block;margin:26px auto 10px;width:270px;filter:drop-shadow(0 10px 14px rgba(120,86,74,.16));
+  animation:floatY 5s ease-in-out infinite}
+.sig{text-align:center;font-family:var(--font-hand);font-size:22px;color:var(--blush-deep);margin:4px 0 2px}
+.sig small{display:block;font-family:var(--font-cap);letter-spacing:.2em;text-transform:uppercase;font-size:10px;color:var(--ink-faint);margin-top:8px}
+
+/* ============================================================
+   SCREEN 3: RSVP FORM
+   ============================================================ */
+#screen-rsvp{padding:22px 20px 34px}
+.form-card{margin:6px auto}
+.form-card .content{padding:34px 26px 30px}
+.form-title{text-align:center;font-family:var(--font-cap);letter-spacing:.24em;text-transform:uppercase;font-size:22px;color:var(--ink-soft);margin:0 0 6px}
+.form-sub{text-align:center;font-family:var(--font-serif);font-style:italic;font-size:16px;color:var(--ink-faint);margin:0 0 22px}
+.field{margin-bottom:18px}
+.field label{display:block;font-family:var(--font-serif);font-size:16px;color:var(--ink);margin-bottom:7px}
+.field label .req{color:var(--blush-deep)}
+.field label .hint{font-style:italic;font-size:14px;color:var(--ink-faint)}
+.field input{width:100%;font-family:var(--font-serif);font-size:17px;color:var(--ink);
+  background:#fffdfb;border:1.4px solid #e4cfc6;border-radius:12px;padding:13px 14px;outline:none;
+  transition:border-color .2s ease, box-shadow .2s ease}
+.field input:focus{border-color:var(--blush-deep);box-shadow:0 0 0 3px rgba(215,164,169,.18)}
+.field input::placeholder{color:#c9b6ad}
+
+.choice{display:grid;gap:10px}
+.opt{position:relative}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt label{display:flex;align-items:center;gap:10px;font-family:var(--font-serif);font-size:16.5px;color:var(--ink-soft);
+  background:#f5ece4;border:1.4px solid transparent;border-radius:12px;padding:13px 15px;cursor:pointer;transition:all .2s ease}
+.opt label::before{content:"";width:18px;height:18px;border-radius:50%;border:2px solid #d8bcae;flex:0 0 auto;transition:all .2s ease}
+.opt input:checked + label{background:#f7e2e3;border-color:var(--blush-deep);color:var(--ink)}
+.opt input:checked + label::before{border-color:var(--blush-deep);background:radial-gradient(circle,#d7a4a9 40%,transparent 46%)}
+.opt input:focus-visible + label{box-shadow:0 0 0 3px rgba(215,164,169,.22)}
+
+.submit{width:100%;margin-top:22px;border:none;border-radius:40px;padding:16px;
+  font-family:var(--font-cap);letter-spacing:.16em;text-transform:uppercase;font-size:14px;color:#fff;
+  background:linear-gradient(180deg,#dca6ab,#cd9096);box-shadow:var(--shadow);transition:transform .2s ease, filter .2s ease}
+.submit:hover{transform:translateY(-2px);filter:brightness(1.03)}
+.submit[disabled]{opacity:.7;transform:none;cursor:default}
+.note{text-align:center;font-family:var(--font-serif);font-style:italic;font-size:12.5px;color:var(--ink-faint);margin-top:12px}
+.back-link{display:block;margin:18px auto 0;background:none;border:none;
+  font-family:var(--font-cap);letter-spacing:.18em;text-transform:uppercase;font-size:11px;color:var(--blush-deep)}
+
+.form-bee{width:34px;margin:14px auto 0;animation:beeWiggle 3s ease-in-out infinite}
+
+/* success panel */
+.success{display:none;text-align:center;padding:8px 4px}
+.success.show{display:block;animation:fadeUp .6s ease both}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.success img{width:210px;margin:0 auto 6px}
+.success h2{font-family:var(--font-script);font-size:40px;color:var(--blush-deep);margin:0 0 4px;font-weight:400}
+.success p{font-family:var(--font-serif);font-size:17px;color:var(--ink-soft);margin:0 auto 20px;max-width:300px;line-height:1.5}
+.cal-wrap{position:relative;display:inline-block}
+.cal-btn{border:1.6px solid var(--blush-deep);background:#fff;border-radius:40px;padding:14px 24px;
+  font-family:var(--font-cap);letter-spacing:.12em;text-transform:uppercase;font-size:12.5px;color:var(--blush-deep);
+  display:inline-flex;align-items:center;gap:9px;box-shadow:var(--shadow)}
+.cal-btn svg{width:16px;height:16px}
+.cal-menu{position:absolute;left:50%;transform:translateX(-50%) translateY(8px);top:100%;z-index:30;
+  background:#fff;border:1px solid #ecd7cf;border-radius:16px;box-shadow:var(--shadow);padding:6px;min-width:210px;
+  opacity:0;visibility:hidden;transition:all .2s ease}
+.cal-menu.open{opacity:1;visibility:visible;transform:translateX(-50%) translateY(6px)}
+.cal-menu a{display:block;text-decoration:none;font-family:var(--font-serif);font-size:16px;color:var(--ink);
+  padding:11px 14px;border-radius:10px}
+.cal-menu a:hover{background:#f7ece4}
+
+/* small footer credit line inside stage */
+.legal{text-align:center;font-family:var(--font-serif);font-size:11px;color:var(--ink-faint);opacity:.7;margin-top:16px}
+
+/* baby photo lightbox */
+.photo-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:22px;
+  background:rgba(70,50,44,.7);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);
+  opacity:0;visibility:hidden;transition:opacity .3s ease}
+.photo-modal.open{opacity:1;visibility:visible}
+.photo-inner{position:relative;max-width:420px;width:100%;background:#fffdfa;border-radius:20px;padding:13px 13px 6px;
+  box-shadow:0 30px 60px -18px rgba(0,0,0,.6);transform:scale(.9);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.photo-modal.open .photo-inner{transform:scale(1)}
+.photo-img-wrap{border-radius:13px;overflow:hidden;background:#000;line-height:0}
+.photo-inner img{width:100%;display:block}
+.photo-cap{text-align:center;font-family:var(--font-hand);font-size:23px;color:var(--blush-deep);margin:8px 0 6px}
+.photo-close{position:absolute;top:-15px;right:-15px;width:40px;height:40px;border-radius:50%;border:none;
+  background:#fff;color:var(--ink);font-size:24px;line-height:38px;text-align:center;
+  box-shadow:0 6px 16px rgba(0,0,0,.35);cursor:pointer;transition:transform .2s ease}
+.photo-close:hover{transform:scale(1.08)}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.15s!important}
+}
+</style>
+</head>
+<body>
+<!-- global SVG filter for hand-drawn wavy card edges -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="wobble"><feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="7" result="n"/>
+  <feDisplacementMap in="SourceGraphic" in2="n" scale="5" xChannelSelector="R" yChannelSelector="G"/></filter>
+</svg>
+
+<div class="stage" id="stage">
+  <div class="honeycomb"></div>
+
+  <!-- ============ SCREEN 1: ENVELOPE ============ -->
+  <section class="screen active" id="screen-envelope">
+    <div class="env-wrap">
+      <div class="envelope-scene" id="envelopeScene" role="button" tabindex="0" aria-label="Tap to open your invitation">
+        <img class="peekers" src="assets/hero.webp" alt="A little bear and piglet peeking over an envelope" />
+        <div class="envelope">
+          <div class="letter"><div class="lil">You're<br>Invited</div></div>
+          <div class="env-base">
+            <svg viewBox="0 0 300 204" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="bodyG" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#f7e3e4"/><stop offset="1" stop-color="#e6c2c6"/></linearGradient>
+                <linearGradient id="pocketG" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#ecccd0"/><stop offset="1" stop-color="#ddb1b7"/></linearGradient>
+              </defs>
+              <rect x="2" y="2" width="296" height="200" rx="18" fill="url(#bodyG)" stroke="#cf9ca1" stroke-width="1.4"/>
+              <!-- front pocket (bottom + side folds meeting at centre) -->
+              <path d="M5 199 L150 116 L295 199 Z" fill="url(#pocketG)" stroke="#cf9ca1" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M5 199 L150 116 L295 199" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="env-flap">
+            <svg viewBox="0 0 300 204" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="flapG" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#f5dee0"/><stop offset="1" stop-color="#e3b9bf"/></linearGradient>
+              </defs>
+              <!-- soft shadow the flap casts onto the body -->
+              <path d="M2 3 L150 124 L298 3 Z" fill="rgba(120,86,74,.10)" transform="translate(0,4)"/>
+              <path d="M2 3 L150 122 L298 3 Q299 1 297 1 L3 1 Q1 1 2 3 Z" fill="url(#flapG)" stroke="#cf9ca1" stroke-width="1.4" stroke-linejoin="round"/>
+              <path d="M2 3 L150 122 L298 3" fill="none" stroke="rgba(255,255,255,.4)" stroke-width="1"/>
+            </svg>
+          </div>
+          <div class="bead left"></div><div class="bead right"></div>
+          <div class="ribbon"></div>
+          <div class="bow">
+            <svg viewBox="0 0 120 80">
+              <g fill="#db9fa6" stroke="#c88f96" stroke-width="1.5">
+                <path d="M60 40 C40 12 8 12 10 40 C8 68 40 68 60 40 Z"/>
+                <path d="M60 40 C80 12 112 12 110 40 C112 68 80 68 60 40 Z"/>
+                <path d="M58 40 L44 78 L56 74 L60 46 Z"/><path d="M62 40 L76 78 L64 74 L60 46 Z"/>
+              </g>
+              <circle cx="60" cy="40" r="9" fill="#cf949c"/>
+            </svg>
+          </div>
+          <div class="seal"><span>m&nbsp;t</span></div>
+        </div>
+      </div>
+      <div class="tagline">
+        <div class="line1">A little <em>hunny</em><br>is on the way</div>
+        <div class="line2">Tap the envelope to open</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 2: INVITATION ============ -->
+  <section class="screen" id="screen-invite">
+    <div class="invite-inner">
+      <!-- hero card -->
+      <div class="card invite-card">
+        <img class="float beehive" src="assets/beehive.webp" alt="" />
+        <img class="float booties" src="assets/booties.webp" alt="" />
+        <div class="frame"></div>
+        <div class="content">
+          <div class="eyebrow">You are invited to<br>Melanny &amp; Tommy's</div>
+          <div class="names" id="namesText">Baby Shower</div>
+          <div class="meta">
+            <div class="big" id="dateBig">Sunday, October 11th · 1:30 PM</div>
+            <div class="sub" id="venueText">Phoenix Park Community Centre<br>22 Rob Roy Rd, Malvern East VIC 3145</div>
+          </div>
+          <div class="rule"></div>
+          <div class="rsvp-by" id="rsvpByText">Kindly RSVP by October 5th</div>
+        </div>
+      </div>
+
+      <!-- actions -->
+      <div class="actions">
+        <button class="rsvp-btn" id="goRsvp" aria-label="RSVP here">
+          <img class="bee-ic" src="assets/beehive.webp" alt="" style="display:none">
+          <span class="pill" style="text-align:center;display:block">RSVP&nbsp;Here</span>
+        </button>
+        <button class="hunny-tap" id="hunnyTap" aria-label="See a photo of our baby girl">
+          <img src="assets/honeypot.webp" alt="Honey pot" />
+          <div class="cap">Tap the hunny for a<br>cute photo of our baby girl</div>
+        </button>
+      </div>
+
+      <!-- small request (single, full width) -->
+      <div class="request-card">
+        <img class="float rattle" src="assets/rattle.webp" alt="" />
+        <img class="float books" src="assets/books.webp" alt="" />
+        <div class="mini blush">
+          <div class="frame"></div>
+          <div class="content">
+            <h3>A Small</h3><div class="cap2">Request</div>
+            <p id="requestText">No gifts needed — instead, please help start her library with a favourite book, and inscribe a sweet note inside.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== FIND US: map + add to calendar (second-last section) ===== -->
+      <section class="findus">
+        <div class="findus-head">
+          <span class="ic">📍</span>
+          <div>
+            <div class="findus-name" id="mapVenueName">Phoenix Park Community Centre</div>
+            <div class="findus-addr" id="mapVenueAddr">22 Rob Roy Rd, Malvern East VIC 3145</div>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe id="mapEmbed" title="Map to the venue" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="about:blank" allowfullscreen></iframe>
+        </div>
+        <a class="map-open" id="mapOpen" href="#" target="_blank" rel="noopener">Open in Google Maps ↗</a>
+
+        <div class="cal-wrap invite-cal">
+          <button class="cal-btn" id="calBtnInvite">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+            Add to Calendar
+          </button>
+          <div class="cal-menu" id="calMenuInvite">
+            <a href="#" id="calGoogleInvite" target="_blank" rel="noopener">📅 Google Calendar</a>
+            <a href="#" id="calAppleInvite">🍎 Apple / Outlook (.ics)</a>
+          </div>
+        </div>
+      </section>
+
+      <img class="footer-art" src="assets/sitting.webp" alt="A bear and piglet sitting together" />
+      <div class="sig">with love & honey<small>Melanny &amp; Tommy</small></div>
+      <div class="legal">Made with love for our baby girl's big day 🍯</div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 3: RSVP ============ -->
+  <section class="screen" id="screen-rsvp">
+    <div class="card form-card">
+      <div class="frame"></div>
+      <div class="content">
+        <!-- FORM -->
+        <div id="formPanel">
+          <h2 class="form-title">Fill RSVP</h2>
+          <p class="form-sub">We can't wait to celebrate with you</p>
+          <form id="rsvpForm" novalidate>
+            <div class="field">
+              <label for="fName">Name <span class="req">*</span></label>
+              <input id="fName" name="name" type="text" autocomplete="name" placeholder="Your full name" required />
+            </div>
+            <div class="field">
+              <label for="fGuests">Number of guests attending <span class="req">*</span> <span class="hint">(kids are welcome)</span></label>
+              <input id="fGuests" name="guests" type="number" min="0" max="20" inputmode="numeric" placeholder="e.g. 2" required />
+            </div>
+            <div class="field">
+              <label>Are you coming? <span class="req">*</span></label>
+              <div class="choice">
+                <div class="opt">
+                  <input type="radio" id="attYes" name="attending" value="yes" required />
+                  <label for="attYes">Absolutely, wouldn't miss it!</label>
+                </div>
+                <div class="opt">
+                  <input type="radio" id="attNo" name="attending" value="no" />
+                  <label for="attNo">Sadly, can't make it this time</label>
+                </div>
+              </div>
+            </div>
+            <button class="submit" type="submit" id="submitBtn">Send RSVP</button>
+            <p class="note">Your details are shared only with the hosts. 🐝</p>
+          </form>
+          <img class="form-bee" src="assets/honeypot.webp" alt="" style="width:0;height:0;opacity:0" />
+          <button class="back-link" id="backToInvite">← Return to details</button>
+        </div>
+
+        <!-- SUCCESS -->
+        <div class="success" id="successPanel">
+          <img src="assets/sitting.webp" alt="" />
+          <h2 id="successTitle">Thank you!</h2>
+          <p id="successMsg">Your RSVP is on its way. We're so happy you'll be part of baby's special day.</p>
+          <div class="cal-wrap">
+            <button class="cal-btn" id="calBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+              Add to Calendar
+            </button>
+            <div class="cal-menu" id="calMenu">
+              <a href="#" id="calGoogle" target="_blank" rel="noopener">📅 Google Calendar</a>
+              <a href="#" id="calApple">🍎 Apple / Outlook (.ics)</a>
+            </div>
+          </div>
+          <button class="back-link" id="backToInvite2" style="margin-top:22px">← Back to invitation</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- floating bees (decor) -->
+  <div class="bee" id="bee1" style="left:16%;top:26%"></div>
+  <div class="bee" id="bee2" style="right:14%;top:64%"></div>
+
+  <!-- baby photo lightbox -->
+  <div class="photo-modal" id="photoModal" aria-hidden="true">
+    <div class="photo-inner">
+      <button class="photo-close" id="photoClose" aria-label="Close">&times;</button>
+      <div class="photo-img-wrap"><img id="photoImg" src="" alt="A scan photo of our baby girl" /></div>
+      <div class="photo-cap">Our little hunny 🍯</div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   ★★★  EDIT YOUR EVENT DETAILS HERE  ★★★
+   ============================================================ */
+const EVENT = {
+  honoreeA:   "Melanny",
+  honoreeB:   "Tommy",
+  namesFull:  "Melanny Ho & Tommy So",
+  babyPronoun:"her",                     // her / his / their
+  // date & time (24h, local Melbourne time)
+  dateISO:    "2026-10-11",
+  startTime:  "13:30",
+  endTime:    "17:30",
+  dateBig:    "Sunday, October 11th · 1:30 PM",
+  venueName:  "Phoenix Park Community Centre",
+  venueAddr:  "22 Rob Roy Rd, Malvern East VIC 3145",
+  rsvpBy:     "Kindly RSVP by October 5th",
+  raffle:     "Bring a pack of nappies for a chance to win a sweet little prize!",
+  request:    "No gifts needed — instead, please help start her library with a favourite book, and inscribe a sweet note inside.",
+  babyPhoto:  "assets/baby-scan.webp",   // shown when the hunny pot is tapped
+  timezone:   "Australia/Melbourne",
+};
+
+/* ============================================================
+   ★★★  GOOGLE FORM WIRING  ★★★
+   1. Build a Google Form with 3 questions in this order:
+        Name (short answer) · Number of guests (short answer) ·
+        Are you coming? (multiple choice)
+   2. Form ⋮ menu → "Get pre-filled link", fill dummy answers, "Get link".
+   3. From that URL copy the form id + each entry.XXXXXXX below.
+   4. Set GFORM_READY = true.
+   ============================================================ */
+const GFORM = {
+  action: "https://docs.google.com/forms/d/e/1FAIpQLSdABuFeyJ9lKi169WI2czGJypdtp74PkLF894VsdfCCy7HDZQ/formResponse",
+  entries: {
+    name:      "entry.894898928",
+    guests:    "entry.1066230989",
+    attending: "entry.112724760",
+  },
+  // must match the multiple-choice option text in your Google Form exactly:
+  attendingYes: "Absolutely, wouldn't miss it!",
+  attendingNo:  "Sadly, can't make it this time",
+};
+const GFORM_READY = true;   // ← connected to the live Google Form / Sheet
+
+/* ============================================================
+   Below this line: no edits needed
+   ============================================================ */
+(function(){
+  const $ = s => document.querySelector(s);
+  const screens = {
+    env:    $('#screen-envelope'),
+    invite: $('#screen-invite'),
+    rsvp:   $('#screen-rsvp'),
+  };
+  const stageEl = $('#stage');
+  function show(name){
+    Object.values(screens).forEach(s=>s.classList.remove('active'));
+    screens[name].classList.add('active');
+    screens[name].scrollTop = 0;
+    stageEl.setAttribute('data-screen', name);
+  }
+
+  // ---- populate text from EVENT ----
+  $('#dateBig').textContent = EVENT.dateBig;
+  $('#venueText').innerHTML = EVENT.venueName + '<br>' + EVENT.venueAddr;
+  $('#rsvpByText').textContent = EVENT.rsvpBy;
+  $('#requestText').textContent = EVENT.request;
+  $('#mapVenueName').textContent = EVENT.venueName;
+  $('#mapVenueAddr').textContent = EVENT.venueAddr;
+
+  // ---- map embed + open link ----
+  const mapQuery = encodeURIComponent(EVENT.venueName + ', ' + EVENT.venueAddr);
+  $('#mapEmbed').src = 'https://www.google.com/maps?q=' + mapQuery + '&z=15&output=embed';
+  $('#mapOpen').href  = 'https://www.google.com/maps/search/?api=1&query=' + mapQuery;
+
+  // ---- envelope open ----
+  const scene = $('#envelopeScene');
+  let opened = false;
+  const loadTime = Date.now();
+  function openEnvelope(e){
+    if(opened) return;
+    // ignore spurious/synthetic triggers at load; require a real user gesture
+    if(e && e.isTrusted === false) return;
+    if(Date.now() - loadTime < 350) return;
+    opened = true;
+    scene.classList.add('opening');
+    setTimeout(()=>{ show('invite'); }, 1250);
+  }
+  scene.addEventListener('click', openEnvelope);
+  scene.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();openEnvelope(e);} });
+
+  // ---- navigation ----
+  $('#goRsvp').addEventListener('click', ()=>show('rsvp'));
+  $('#backToInvite').addEventListener('click', ()=>show('invite'));
+  $('#backToInvite2').addEventListener('click', ()=>{ resetForm(); show('invite'); });
+
+  // ---- hunny pot → reveal baby photo ----
+  const photoModal=$('#photoModal'), photoImg=$('#photoImg');
+  photoImg.src = EVENT.babyPhoto;
+  function openPhoto(){ photoModal.classList.add('open'); photoModal.setAttribute('aria-hidden','false'); }
+  function closePhoto(){ photoModal.classList.remove('open'); photoModal.setAttribute('aria-hidden','true'); }
+  $('#hunnyTap').addEventListener('click', ()=>{
+    const img = $('#hunnyTap img');
+    img.style.transition='transform .5s cubic-bezier(.3,1.4,.5,1)';
+    img.style.transform='scale(1.15) rotate(6deg)';
+    setTimeout(()=>img.style.transform='',550);
+    openPhoto();
+  });
+  $('#photoClose').addEventListener('click', closePhoto);
+  photoModal.addEventListener('click', e=>{ if(e.target===photoModal) closePhoto(); });
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closePhoto(); });
+
+  // ---- toast ----
+  let toastEl;
+  function toast(msg){
+    if(!toastEl){
+      toastEl=document.createElement('div');
+      toastEl.style.cssText='position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);'+
+        'max-width:400px;width:calc(100% - 40px);background:#fffdfa;color:#6f5b52;border:1px solid #ecd7cf;'+
+        'border-radius:16px;padding:16px 18px;font-family:var(--font-serif);font-size:15.5px;line-height:1.45;'+
+        'box-shadow:0 18px 40px -12px rgba(120,86,74,.4);z-index:100;opacity:0;transition:all .35s ease;text-align:center';
+      document.body.appendChild(toastEl);
+    }
+    toastEl.textContent=msg;
+    requestAnimationFrame(()=>{toastEl.style.opacity='1';toastEl.style.transform='translateX(-50%) translateY(0)';});
+    clearTimeout(toastEl._t);
+    toastEl._t=setTimeout(()=>{toastEl.style.opacity='0';toastEl.style.transform='translateX(-50%) translateY(20px)';},4200);
+  }
+
+  // ---- bees SVG ----
+  const beeSVG = `<svg viewBox="0 0 60 46" xmlns="http://www.w3.org/2000/svg">
+    <g class="wing w1" fill="#fff" stroke="#d9c48f" stroke-width="1" opacity=".85"><ellipse cx="26" cy="12" rx="11" ry="7"/></g>
+    <g class="wing w2" fill="#fff" stroke="#d9c48f" stroke-width="1" opacity=".85"><ellipse cx="36" cy="12" rx="11" ry="7"/></g>
+    <ellipse cx="34" cy="28" rx="16" ry="12" fill="#f0c24a" stroke="#b9852c" stroke-width="1.4"/>
+    <path d="M28 18 Q34 40 40 40" stroke="#5a4632" stroke-width="3.4" fill="none"/>
+    <path d="M36 18 Q40 40 46 38" stroke="#5a4632" stroke-width="3.4" fill="none"/>
+    <circle cx="18" cy="26" r="6.5" fill="#4a3a2c"/>
+    <circle cx="16" cy="24" r="1.6" fill="#fff"/>
+    <path d="M13 20 q-4 -5 -1 -8 M15 18 q-2 -6 2 -8" stroke="#4a3a2c" stroke-width="1.3" fill="none"/>
+  </svg>`;
+  $('#bee1').innerHTML = beeSVG; $('#bee1').style.animation='beeA 11s ease-in-out infinite';
+  $('#bee2').innerHTML = beeSVG; $('#bee2').style.animation='beeB 13s ease-in-out infinite';
+
+  // ============================================================
+  //  RSVP submission
+  // ============================================================
+  const form = $('#rsvpForm');
+  const submitBtn = $('#submitBtn');
+  function resetForm(){
+    form.reset();
+    $('#formPanel').style.display='';
+    $('#successPanel').classList.remove('show');
+    submitBtn.disabled=false; submitBtn.textContent='Send RSVP';
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.reportValidity()) return;
+    const data = {
+      name:   $('#fName').value.trim(),
+      guests: $('#fGuests').value.trim(),
+      attending: (form.querySelector('input[name=attending]:checked')||{}).value,
+    };
+    submitBtn.disabled=true; submitBtn.textContent='Sending…';
+
+    // 1) always keep a local backup so nothing is ever lost
+    try{
+      const all=JSON.parse(localStorage.getItem('rsvps')||'[]');
+      all.push({...data, at:new Date().toISOString()});
+      localStorage.setItem('rsvps', JSON.stringify(all));
+    }catch(_){}
+
+    // 2) send to Google Form if configured
+    if(GFORM_READY){ postToGoogleForm(data); }
+
+    // 3) show success (Google Forms gives no CORS response, so we proceed optimistically)
+    setTimeout(()=>revealSuccess(data), GFORM_READY?900:450);
+  });
+
+  function postToGoogleForm(data){
+    const iframeName='gform_target';
+    let iframe=document.querySelector('iframe[name="'+iframeName+'"]');
+    if(!iframe){
+      iframe=document.createElement('iframe');
+      iframe.name=iframeName; iframe.style.display='none';
+      document.body.appendChild(iframe);
+    }
+    const f=document.createElement('form');
+    f.action=GFORM.action; f.method='POST'; f.target=iframeName; f.style.display='none';
+    const add=(k,v)=>{const i=document.createElement('input');i.type='hidden';i.name=k;i.value=v;f.appendChild(i);};
+    add(GFORM.entries.name, data.name);
+    add(GFORM.entries.guests, data.guests);
+    add(GFORM.entries.attending, data.attending==='yes'?GFORM.attendingYes:GFORM.attendingNo);
+    document.body.appendChild(f);
+    f.submit();
+    setTimeout(()=>f.remove(),1500);
+  }
+
+  function revealSuccess(data){
+    $('#formPanel').style.display='none';
+    const s=$('#successPanel'); s.classList.add('show');
+    if(data.attending==='no'){
+      $('#successTitle').textContent='Thank you!';
+      $('#successMsg').textContent="We'll miss you, but thank you for letting us know 💛 We'll save some honey for you.";
+    }else{
+      $('#successTitle').textContent="You're on the list!";
+      $('#successMsg').textContent="Thank you, "+(data.name.split(' ')[0]||'friend')+"! We can't wait to celebrate with you. Don't forget to add the date to your calendar.";
+    }
+  }
+
+  // ============================================================
+  //  Add to Calendar  (wired for both the invite + success buttons)
+  // ============================================================
+  function calDates(){
+    const s=EVENT.dateISO.replace(/-/g,'')+'T'+EVENT.startTime.replace(':','')+'00';
+    const en=EVENT.dateISO.replace(/-/g,'')+'T'+EVENT.endTime.replace(':','')+'00';
+    return {s,en};
+  }
+  const calTitle = EVENT.namesFull + " — Baby Shower 🍯";
+  const calDetails = "A little hunny is on the way! Join us to celebrate. " + EVENT.rsvpBy + ".";
+  const calLocation = EVENT.venueName + ", " + EVENT.venueAddr;
+
+  function googleCalUrl(){
+    const {s,en}=calDates();
+    const u=new URL('https://calendar.google.com/calendar/render');
+    u.searchParams.set('action','TEMPLATE');
+    u.searchParams.set('text',calTitle);
+    u.searchParams.set('dates',s+'/'+en);
+    u.searchParams.set('details',calDetails);
+    u.searchParams.set('location',calLocation);
+    u.searchParams.set('ctz',EVENT.timezone);
+    return u.toString();
+  }
+  function downloadICS(){
+    const {s,en}=calDates();
+    const dt=new Date().toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
+    const ics=[
+      'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Baby Shower//EN','CALSCALE:GREGORIAN',
+      'BEGIN:VEVENT','UID:'+Date.now()+'@babyshower','DTSTAMP:'+dt,
+      'DTSTART;TZID='+EVENT.timezone+':'+s,
+      'DTEND;TZID='+EVENT.timezone+':'+en,
+      'SUMMARY:'+calTitle,
+      'DESCRIPTION:'+calDetails.replace(/,/g,'\\,'),
+      'LOCATION:'+calLocation.replace(/,/g,'\\,'),
+      'END:VEVENT','END:VCALENDAR'
+    ].join('\r\n');
+    const blob=new Blob([ics],{type:'text/calendar;charset=utf-8'});
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob); a.download='baby-shower.ics';
+    document.body.appendChild(a); a.click();
+    setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},500);
+  }
+  // close any open calendar menus on outside click
+  document.addEventListener('click', ()=>document.querySelectorAll('.cal-menu.open').forEach(m=>m.classList.remove('open')));
+
+  function wireCalendar(btnId, menuId, gLinkId, aLinkId){
+    const btn=$('#'+btnId), menu=$('#'+menuId), gl=$('#'+gLinkId), al=$('#'+aLinkId);
+    if(!btn) return;
+    gl.href = googleCalUrl();
+    btn.addEventListener('click', e=>{ e.stopPropagation();
+      const willOpen=!menu.classList.contains('open');
+      document.querySelectorAll('.cal-menu.open').forEach(m=>m.classList.remove('open'));
+      menu.classList.toggle('open', willOpen);
+    });
+    menu.addEventListener('click', e=>e.stopPropagation());
+    al.addEventListener('click', e=>{ e.preventDefault(); downloadICS(); menu.classList.remove('open'); });
+  }
+  wireCalendar('calBtnInvite','calMenuInvite','calGoogleInvite','calAppleInvite');
+  wireCalendar('calBtn','calMenu','calGoogle','calApple');
+
+  // ---- helper: hosts can export collected RSVPs by typing exportRSVPs() in console ----
+  window.exportRSVPs=function(){
+    const all=JSON.parse(localStorage.getItem('rsvps')||'[]');
+    if(!all.length){console.log('No local RSVPs stored.');return;}
+    const head='name,guests,attending,at\n';
+    const rows=all.map(r=>[r.name,r.guests,r.attending,r.at].map(v=>'"'+String(v||'').replace(/"/g,'""')+'"').join(',')).join('\n');
+    const blob=new Blob([head+rows],{type:'text/csv'});
+    const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='rsvps.csv';a.click();
+    console.log('Exported '+all.length+' RSVP(s).');
+  };
+})();
+</script>
+</body>
+</html>
